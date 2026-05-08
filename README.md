@@ -27,6 +27,32 @@ npm run build
 npm run preview
 ```
 
+
+## Deploy en Vercel
+
+El proyecto ya incluye `vercel.json`, `.nvmrc` y scripts preparados para desplegarse como una app Vite estática.
+
+### Opción recomendada: importar desde Git
+
+1. Subir este repositorio a GitHub, GitLab o Bitbucket.
+2. En Vercel, elegir **Add New Project** e importar el repositorio.
+3. Vercel detectará el framework **Vite**. Si necesitas configurarlo manualmente, usa:
+   - **Install Command:** `npm install`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+4. No se requieren variables de entorno: la app usa `LocalStorage` del navegador y Web Notifications API.
+5. Hacer clic en **Deploy**.
+
+### Opción CLI
+
+```bash
+npm install
+npm run build
+npx vercel --prod
+```
+
+La configuración de Vercel incluye una rewrite hacia `index.html` para que la app funcione como SPA y headers básicos de seguridad/cache para producción.
+
 ## Funciones principales
 
 - Dashboard con estado Controlado/Riesgo/Peligro, score de disciplina y métricas del día.
